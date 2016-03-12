@@ -1,0 +1,1 @@
+rm ~/Desktop/autoimage.iso & hdiutil create ~/Desktop/autoimage -format UDTO -srcfolder "$@" && mv ~/Desktop/autoimage.cdr ~/Desktop/autoimage.iso
