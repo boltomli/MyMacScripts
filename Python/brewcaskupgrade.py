@@ -16,7 +16,7 @@ list_command = [
 ]
 
 list_installed = str.split(check_output(list_command).decode(), '\n')
-list_installed = [i for i in list_installed if i is not None]
+list_installed = [i for i in list_installed if i is not '']
 for cask in list_installed:
     info_command = [
         brew_bin,
