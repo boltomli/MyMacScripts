@@ -1,0 +1,6 @@
+152,153c152,153
+< 	strnvis(ptitle, buf, sizeof(ptitle),
+< 	    VIS_CSTYLE|VIS_NL|VIS_TAB|VIS_OCTAL);
+---
+> //	strnvis(ptitle, buf, sizeof(ptitle),
+> //	    VIS_CSTYLE|VIS_NL|VIS_TAB|VIS_OCTAL);
