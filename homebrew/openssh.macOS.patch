@@ -1,5 +1,5 @@
---- /Users/songl/openssh-7.1p2/openbsd-compat/setproctitle.c	2016-01-14 09:10:45.000000000 +0800
-+++ /Users/songl/openssh-7.2p2/openbsd-compat/setproctitle.c	2016-07-21 13:22:47.000000000 +0800
+--- a/openbsd-compat/setproctitle.c	2016-01-14 09:10:45.000000000 +0800
++++ b/openbsd-compat/setproctitle.c	2016-07-21 13:22:47.000000000 +0800
 @@ -149,8 +149,8 @@
  	va_end(ap);
  	if (r == -1 || (size_t)r >= sizeof(buf) - len)
