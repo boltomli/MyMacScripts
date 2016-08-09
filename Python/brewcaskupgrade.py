@@ -2,8 +2,15 @@
 
 # -*- coding: utf8 -*-
 
+import argparse
 import shutil
 from subprocess import check_output, run
+
+parser = argparse.ArgumentParser(description='Update every entries found in cask folder.')
+parser.add_argument('--pretend', dest='pretend', action='store_true',
+                    help='Pretend to take action.')
+parser.set_defaults(pretend=False)
+args = parser.parse_args()
 
 brew_bin = 'brew'
 if not shutil.which(brew_bin):
@@ -35,5 +42,8 @@ for cask in list_installed:
             '--force',
             cask
         ]
-        run(install_command)
+        if args.pretend:
+            print(' '.join(install_command))
+        else:
+            run(install_command)
         print('Installed', cask)
