@@ -31,7 +31,10 @@ for cask in list_installed:
         'info',
         cask
     ]
-    install_status = check_output(info_command).decode()
+    try:
+        install_status = check_output(info_command).decode()
+    except:
+        install_status = 'Not installed'
 
     if 'Not installed' in install_status:
         print('Installing', cask)
