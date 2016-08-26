@@ -39,7 +39,7 @@ for cask in list_installed:
     version = str.strip(str.split(install_status[0], ':')[1])
     is_version_installed = False
     for line in install_status:
-        if not line.startswith(cask) and line.__contains__(cask) and line.__contains__(version):
+        if not line.startswith(cask) and cask in line and version in line:
             is_version_installed = True
 
     if not is_version_installed:
