@@ -32,11 +32,17 @@ for cask in list_installed:
         cask
     ]
     try:
-        install_status = check_output(info_command).decode()
+        install_status = str.splitlines(check_output(info_command).decode())
     except:
         install_status = 'Not installed'
 
-    if 'Not installed' in install_status:
+    version = str.strip(str.split(install_status[0], ':')[1])
+    is_version_installed = False
+    for line in install_status:
+        if not line.startswith(cask) and line.__contains__(cask) and line.__contains__(version):
+            is_version_installed = True
+
+    if not is_version_installed:
         print('Installing', cask)
         install_command = [
             brew_bin,
