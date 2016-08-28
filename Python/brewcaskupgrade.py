@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 # -*- coding: utf8 -*-
 
@@ -24,6 +24,8 @@ list_command = [
 
 list_installed = str.split(check_output(list_command).decode(), '\n')
 list_installed = [i for i in list_installed if i is not '']
+print(str(len(list_installed)) + ' cask(s) installed')
+updated_count = 0
 for cask in list_installed:
     info_command = [
         brew_bin,
@@ -55,4 +57,6 @@ for cask in list_installed:
             print(' '.join(install_command))
         else:
             run(install_command)
-        print('Installed', cask)
+        updated_count += 1
+
+print(str(updated_count) + ' cask(s) updated')
