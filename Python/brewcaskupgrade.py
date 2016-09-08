@@ -9,7 +9,9 @@ from subprocess import check_output, run
 parser = argparse.ArgumentParser(description='Update every entries found in cask folder.')
 parser.add_argument('--pretend', dest='pretend', action='store_true',
                     help='Pretend to take action.')
-parser.set_defaults(pretend=False)
+parser.add_argument('--forceuninstall', dest='forceuninstall', action='store_true',
+                    help='Force uninstall before install.')
+parser.set_defaults(pretend=False, forceuninstall=False)
 args = parser.parse_args()
 
 brew_bin = 'brew'
@@ -39,11 +41,11 @@ for cask in list_installed:
         install_status = 'Not installed'
 
     version = str.strip(str.split(install_status[0], ':')[1])
-    is_version_installed = False
     for line in install_status:
         if not line.startswith(cask) and cask in line and version in line:
             is_version_installed = True
 
+    is_version_installed = False
     if not is_version_installed:
         print('Installing', cask)
         install_command = [
@@ -56,6 +58,15 @@ for cask in list_installed:
         if args.pretend:
             print(' '.join(install_command))
         else:
+            if args.forceuninstall:
+                uninstall_command = [
+                    brew_bin,
+                    'cask',
+                    'uninstall',
+                    '--force',
+                    cask
+                ]
+                run(uninstall_command)
             run(install_command)
         updated_count += 1
 
