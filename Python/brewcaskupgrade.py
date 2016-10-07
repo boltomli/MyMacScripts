@@ -4,6 +4,7 @@
 
 import argparse
 import shutil
+from progress.bar import Bar
 from subprocess import check_output, run
 
 parser = argparse.ArgumentParser(description='Update every entries found in cask folder.')
@@ -27,6 +28,7 @@ list_command = [
 list_installed = str.split(check_output(list_command).decode(), '\n')
 list_installed = [i for i in list_installed if i is not '']
 print(str(len(list_installed)) + ' cask(s) installed')
+bar = Bar('Processing', max=len(list_installed))
 updated_count = 0
 for cask in list_installed:
     info_command = [
@@ -69,5 +71,6 @@ for cask in list_installed:
                 run(uninstall_command)
             run(install_command)
         updated_count += 1
-
+    bar.next()
+bar.finish()
 print(str(updated_count) + ' cask(s) updated')
