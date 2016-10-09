@@ -27,7 +27,6 @@ list_command = [
 
 list_installed = str.split(check_output(list_command).decode(), '\n')
 list_installed = [i for i in list_installed if i is not '']
-print(str(len(list_installed)) + ' cask(s) installed')
 bar = Bar('Processing', max=len(list_installed))
 updated_count = 0
 for cask in list_installed:
@@ -49,7 +48,7 @@ for cask in list_installed:
             is_version_installed = True
 
     if not is_version_installed:
-        print('Installing', cask)
+        print('\nInstalling', cask)
         install_command = [
             brew_bin,
             'cask',
