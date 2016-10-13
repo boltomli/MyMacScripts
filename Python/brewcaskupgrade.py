@@ -4,7 +4,7 @@
 
 import argparse
 import shutil
-from progress.bar import Bar
+from tqdm import tqdm
 from subprocess import check_output, run
 
 parser = argparse.ArgumentParser(description='Update every entries found in cask folder.')
@@ -27,9 +27,10 @@ list_command = [
 
 list_installed = str.split(check_output(list_command).decode(), '\n')
 list_installed = [i for i in list_installed if i is not '']
-bar = Bar('Processing', max=len(list_installed))
 updated_count = 0
-for cask in list_installed:
+pbar = tqdm(list_installed)
+for cask in pbar:
+    pbar.set_description(cask)
     info_command = [
         brew_bin,
         'cask',
@@ -48,7 +49,6 @@ for cask in list_installed:
             is_version_installed = True
 
     if not is_version_installed:
-        print('\nInstalling', cask)
         install_command = [
             brew_bin,
             'cask',
@@ -70,6 +70,4 @@ for cask in list_installed:
                 run(uninstall_command)
             run(install_command)
         updated_count += 1
-    bar.next()
-bar.finish()
 print(str(updated_count) + ' cask(s) updated')
