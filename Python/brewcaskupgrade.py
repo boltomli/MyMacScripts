@@ -19,6 +19,13 @@ brew_bin = 'brew'
 if not shutil.which(brew_bin):
     raise FileExistsError(brew_bin + ' not exists')
 
+update_command = [
+    brew_bin,
+    'update'
+]
+
+run(update_command)
+
 list_command = [
     brew_bin,
     'cask',
