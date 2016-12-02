@@ -1,10 +1,20 @@
-# Enable ssh version 1 support in macOS Sierra
+# Tasks for Homebrew
 
-## Why
+## Update brew periodically
+
+The task will run each hour when user is logged in.
+
+```shell
+cp sh.brew.plist $HOME/Library/LaunchAgents
+```
+
+## Enable ssh version 1 support in macOS Sierra
+
+### Why
 
 SSH in macOS Sierra dropped version 1 support. The homebrew tap doesn't support it by default either.
 
-## Usage
+### Usage
 
 ```shell
 brew tap homebrew/dupes
