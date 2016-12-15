@@ -5,6 +5,7 @@
 The task will run each hour when user is logged in.
 
 ```shell
+mkdir -p $HOME/Library/LaunchAgents
 cp sh.brew.plist $HOME/Library/LaunchAgents
 ```
 
