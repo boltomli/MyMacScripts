@@ -12,7 +12,9 @@ parser.add_argument('--pretend', dest='pretend', action='store_true',
                     help='Pretend to take action.')
 parser.add_argument('--forceuninstall', dest='forceuninstall', action='store_true',
                     help='Force uninstall before install.')
-parser.set_defaults(pretend=False, forceuninstall=False)
+parser.add_argument('--checkfonts', dest='checkfonts', action='store_true',
+                    help='Enable check of font casks.')
+parser.set_defaults(pretend=False, forceuninstall=False, checkfonts=False)
 args = parser.parse_args()
 
 brew_bin = 'brew'
@@ -34,6 +36,8 @@ list_command = [
 
 list_installed = str.split(check_output(list_command).decode(), '\n')
 list_installed = [i for i in list_installed if i is not '']
+if not args.checkfonts:
+    list_installed = [i for i in list_installed if not i.startswith('font-')]
 if list_installed:
     updated_count = 0
     pbar = tqdm(list_installed)
