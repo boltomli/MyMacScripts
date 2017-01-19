@@ -14,7 +14,9 @@ parser.add_argument('--forceuninstall', dest='forceuninstall', action='store_tru
                     help='Force uninstall before install.')
 parser.add_argument('--checkfonts', dest='checkfonts', action='store_true',
                     help='Enable check of font casks.')
-parser.set_defaults(pretend=False, forceuninstall=False, checkfonts=False)
+parser.add_argument('--checklatest', dest='checklatest', action='store_true',
+                    help='Enable update of casks that use latest as version.')
+parser.set_defaults(pretend=False, forceuninstall=False, checkfonts=False, checklatest=False)
 args = parser.parse_args()
 
 brew_bin = 'brew'
@@ -56,6 +58,8 @@ if list_installed:
             for line in install_status:
                 if not line.startswith(cask) and cask in line and version in line:
                     is_version_installed = True
+            if version == 'latest' and args.checklatest:
+                is_version_installed = False
 
             if not is_version_installed:
                 install_command = [
