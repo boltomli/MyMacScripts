@@ -18,7 +18,6 @@ SSH in macOS Sierra dropped version 1 support. The homebrew tap doesn't support 
 ### Usage
 
 ```shell
-brew tap homebrew/dupes
 curl -fsSL https://github.com/boltomli/MyMacScripts/raw/master/homebrew/homebrew-core.openssh.diff | patch /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/openssh.rb
 brew install openssh --with-ssh1
 ```
