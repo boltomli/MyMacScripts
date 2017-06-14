@@ -1,1 +1,1 @@
-for i in `cat "$@"`; do /usr/local/bin/youtube-dl $i -o "~/Desktop/youdown/%(title)s-%(id)s.%(ext)s"; done
+for i in `cat "$@"`; do /usr/local/bin/youtube-dl $i -o "~/Desktop/youdown/%(title)s-%(id)s.%(ext)s" --recode-video mp4 --prefer-ffmpeg --ffmpeg-location /usr/local/bin/ffmpeg; done
