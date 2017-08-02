@@ -22,12 +22,20 @@ if not shutil.which(brew_bin):
 list_command = [
     brew_bin,
     'cask',
+    'list'
+]
+list_installed = str.split(check_output(list_command).decode(), '\n')
+list_installed = [i for i in list_installed if i is not '']
+
+search_command = [
+    brew_bin,
+    'cask',
     'search',
     '/font-/'
 ]
+list_fonts = str.split(check_output(search_command).decode(), '\n')
+list_fonts = [i for i in list_fonts if i not in list_installed]
 
-list_fonts = str.split(check_output(list_command).decode(), '\n')
-list_fonts = [i for i in list_fonts if i is not '']
 if list_fonts:
     pbar = tqdm(list_fonts)
     for cask in pbar:
