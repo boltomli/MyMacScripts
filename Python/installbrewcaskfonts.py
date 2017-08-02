@@ -34,7 +34,7 @@ search_command = [
     '/font-/'
 ]
 list_fonts = str.split(check_output(search_command).decode(), '\n')
-list_fonts = [i for i in list_fonts if i not in list_installed]
+list_fonts = [i for i in list_fonts if i not in list_installed and i is not '']
 
 if list_fonts:
     pbar = tqdm(list_fonts)
@@ -45,7 +45,7 @@ if list_fonts:
                 brew_bin,
                 'cask',
                 'install',
-                #'--force',
+                '--force',
                 cask
             ]
             if args.pretend:
