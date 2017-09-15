@@ -35,6 +35,5 @@ LC_ALL=C sed -i.bak 's#/usr/bin/ssh#/usr/local/s#' /Applications/Welly.app/Conte
 Audacity was removed from official cask room but is apparently still useful. I'll keep a copy updated with upstream version (`2.1.3` at present).
 
 ```shell
-wget -O /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/audacity.rb https://github.com/boltomli/MyMacScripts/raw/master/homebrew/audacity.rb
-brew cask install audacity
+brew cask install https://github.com/boltomli/MyMacScripts/raw/master/homebrew/audacity.rb
 ```
