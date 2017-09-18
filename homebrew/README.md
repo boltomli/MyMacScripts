@@ -37,3 +37,14 @@ Audacity was removed from official cask room but is apparently still useful. I'l
 ```shell
 brew cask install https://github.com/boltomli/MyMacScripts/raw/master/homebrew/audacity.rb
 ```
+
+## proxychains-ng
+
+If proxychains4 pops warning
+
+```text
+dyld: warning: could not load inserted library '/usr/local/Cellar/proxychains-ng/4.12_1/lib/libproxychains4.dylib' into library validated process because no suitable image found.  Did find:
+    /usr/local/Cellar/proxychains-ng/4.12_1/lib/libproxychains4.dylib: code signing blocked mmap() of '/usr/local/Cellar/proxychains-ng/4.12_1/lib/libproxychains4.dylib'
+```
+
+Simply use a different binary after proxychains4 that is not in System default paths such as /Applications, etc. For exapmle, `proxychains4 /usr/local/bin/wget [someurl]`.
