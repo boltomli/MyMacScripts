@@ -65,8 +65,7 @@ if list_installed:
                 install_command = [
                     brew_bin,
                     'cask',
-                    'install',
-                    '--force',
+                    'reinstall',
                     cask
                 ]
                 if args.pretend:
