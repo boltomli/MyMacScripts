@@ -13,12 +13,12 @@ cp sh.brew.plist $HOME/Library/LaunchAgents
 
 ### Why
 
-SSH in macOS Sierra dropped version 1 support. The homebrew tap doesn't support it by default either.
+SSH in macOS Sierra dropped version 1 support. The homebrew tap doesn't support it by default either. It is not encouraged to do so in fact, as we have to stay at version 7.5 which would be insecure.
 
 ### Usage
 
 ```shell
-curl -fsSL https://github.com/boltomli/MyMacScripts/raw/master/homebrew/homebrew-core.openssh.diff | patch /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/openssh.rb
+curl -fsSL https://github.com/boltomli/MyMacScripts/raw/master/homebrew/homebrew-core.openssh.diff | patch $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/openssh.rb
 brew install openssh --with-ssh1
 ```
 
