@@ -30,6 +30,8 @@ sudo ln -s /usr/local/bin/ssh /usr/local/s
 LC_ALL=C sed -i.bak 's#/usr/bin/ssh#/usr/local/s#' /Applications/Welly.app/Contents/MacOS/Welly
 ```
 
+[clyang-welly](https://github.com/clyang/welly) is in active development so you may want to try `brew cask install clyang-welly`
+
 ## Audacity
 
 Audacity was removed from official cask room but is apparently still useful. I'll keep a copy updated with upstream version (`2.1.3` at present).
