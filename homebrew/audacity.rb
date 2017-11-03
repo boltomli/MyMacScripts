@@ -1,6 +1,6 @@
 cask 'audacity' do
-  version '2.1.3'
-  sha256 '68e82a944a9aa29068e2a2faa4cbd85f909d48f3916e6a57983d14f605d88b5d'
+  version '2.2.0'
+  sha256 '56c31ffb3e605dce5da84170eb4779035550ddd0dd087ca086b21f12303f79f4'
 
   url do
     # Audacity does not provide a fixed URL
