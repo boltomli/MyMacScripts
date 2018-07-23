@@ -53,12 +53,12 @@ if list_installed:
         ]
         try:
             install_status = str.splitlines(check_output(info_command).decode())
-            version = str.strip(str.split(install_status[0], ':')[1])
+            version = str.strip(str.split(install_status[0], ' ')[1])
             is_version_installed = False
             for line in install_status:
                 if not line.startswith(cask) and cask in line and version in line:
                     is_version_installed = True
-            if version == 'latest' and args.checklatest:
+            if version == 'latest' and args.checklatest and 'conda' not in cask:
                 is_version_installed = False
 
             if not is_version_installed:
