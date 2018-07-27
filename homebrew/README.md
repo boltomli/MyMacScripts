@@ -5,8 +5,8 @@
 The task will run each hour when user is logged in.
 
 ```shell
-mkdir -p $HOME/Library/LaunchAgents
-cp sh.brew.plist $HOME/Library/LaunchAgents
+mkdir -p ~/Library/LaunchAgents
+cp sh.brew.plist ~/Library/LaunchAgents
 ```
 
 ## Enable ssh version 1 support in macOS Sierra
