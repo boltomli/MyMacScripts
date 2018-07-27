@@ -1,53 +1,38 @@
 diff --git a/Formula/openssh.rb b/Formula/openssh.rb
-index fcb7c23d..47c166cc 100644
+index e5014ab..0a8da6a 100644
 --- a/Formula/openssh.rb
 +++ b/Formula/openssh.rb
-@@ -1,10 +1,10 @@
+@@ -1,11 +1,11 @@
  class Openssh < Formula
    desc "OpenBSD freely-licensed SSH connectivity tools"
    homepage "https://www.openssh.com/"
--  url "https://www.mirrorservice.org/pub/OpenBSD/OpenSSH/portable/openssh-7.6p1.tar.gz"
--  mirror "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.6p1.tar.gz"
--  version "7.6p1"
--  sha256 "a323caeeddfe145baaa0db16e98d784b1fbc7dd436a6bf1f479dfd5cd1d21723"
+-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
+-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
+-  version "7.7p1"
+-  sha256 "d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f"
+-
 +  url "https://www.mirrorservice.org/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz"
 +  mirror "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz"
 +  version "7.5p1"
 +  sha256 "9846e3c5fab9f0547400b4d2c017992f914222b3fd1f8eee6c7dc6bc5e59f9f0"
-
++  
    bottle do
-     sha256 "9099a34766125cfb8e56f6d92fc5c305bbf402200c4d8d6326f443707e14ef08" => :high_sierra
-@@ -17,6 +17,8 @@ class Openssh < Formula
-
-   depends_on "openssl"
-
+     sha256 "d378e6ea62cc33ab02df2c7394c8b9dc90fa7ab7d0a54a2f5f9a1db4c6f69dd4" => :high_sierra
+     sha256 "f30f9b4163419d95b59e62dc6b55b956ab0612b49a654ace9fae3f67d18d3198" => :sierra
+@@ -19,6 +19,8 @@ class Openssh < Formula
+   depends_on "ldns" => :optional
+   depends_on "pkg-config" => :build if build.with? "ldns"
+ 
 +  option "with-ssh1", "Build with ssh1 support"
 +
    # Both these patches are applied by Apple.
    patch do
      url "https://raw.githubusercontent.com/Homebrew/patches/1860b0a74/openssh/patch-sandbox-darwin.c-apple-sandbox-named-external.diff"
-@@ -40,12 +42,18 @@ class Openssh < Formula
-     # We introduce this issue with patching, it's not an upstream bug.
-     inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
-
--    system "./configure", "--with-libedit",
--                          "--with-kerberos5",
--                          "--prefix=#{prefix}",
--                          "--sysconfdir=#{etc}/ssh",
--                          "--with-pam",
--                          "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
-+    args = %W[
-+      --with-libedit
-+      --with-kerberos5
-+      --prefix=#{prefix}
-+      --sysconfdir=#{etc}/ssh
-+      --with-pam
-+      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
-+    ]
-+
+@@ -52,6 +54,7 @@ class Openssh < Formula
+     ]
+ 
+     args << "--with-ldns" if build.with? "ldns"
 +    args << "--with-ssh1" if build.with? "ssh1"
-+
-+    system "./configure", *args
+ 
+     system "./configure", *args
      system "make"
-     ENV.deparallelize
-     system "make", "install"
