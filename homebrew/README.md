@@ -18,8 +18,8 @@ SSH in macOS Sierra dropped version 1 support. The homebrew tap doesn't support 
 ### Usage
 
 ```shell
-curl -fsSL https://github.com/boltomli/MyMacScripts/raw/master/homebrew/homebrew-core.openssh.diff | patch $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/openssh.rb
-brew install openssh --with-ssh1
+brew tap boltomli/MyMacScripts https://github.com/boltomli/MyMacScripts.git
+brew install boltomli/MyMacScripts/openssh --with-ssh1
 ```
 
 If you want to make ssh1 work in Applications such as Welly ***DANGEROUS!***:
