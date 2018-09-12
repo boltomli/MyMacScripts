@@ -42,10 +42,11 @@ brew cask install https://github.com/boltomli/MyMacScripts/raw/master/homebrew/a
 
 ## Picat
 
-Picat is hard to build, and may not belong to cask as well as formula. I'll keep a copy updated with upstream version.
+Picat formula for testing in the tap.
 
 ```shell
-brew cask install https://github.com/boltomli/MyMacScripts/raw/master/homebrew/picat.rb
+brew tap boltomli/MyMacScripts https://github.com/boltomli/MyMacScripts.git
+brew install boltomli/MyMacScripts/picat
 ```
 
 ## proxychains-ng
