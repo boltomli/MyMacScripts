@@ -40,15 +40,6 @@ Audacity was removed from official cask room but is apparently still useful. I'l
 brew cask install https://github.com/boltomli/MyMacScripts/raw/master/homebrew/audacity.rb
 ```
 
-## Picat
-
-Picat formula for testing in the tap.
-
-```shell
-brew tap boltomli/MyMacScripts https://github.com/boltomli/MyMacScripts.git
-brew install boltomli/MyMacScripts/picat
-```
-
 ## proxychains-ng
 
 If proxychains4 pops warning
