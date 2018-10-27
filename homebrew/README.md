@@ -50,3 +50,7 @@ dyld: warning: could not load inserted library '/usr/local/Cellar/proxychains-ng
 ```
 
 Simply use a different binary after proxychains4 that is not in System default paths such as /Applications, etc. For exapmle, `proxychains4 /usr/local/bin/wget [someurl]`.
+
+## X11 forwarding
+
+Enable indirect GLX by `defaults write org.macosforge.xquartz.X11 enable_iglx -bool true` then `ssh -Y [host]`.
