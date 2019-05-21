@@ -1,6 +1,6 @@
 cask 'audacity' do
-  version '2.3.0'
-  sha256 '16684a03a6e6aacac0962636735ce7d9bf11483f6d194b05729981136cced9eb'
+  version '2.3.2'
+  sha256 '0d2ea6de4f2cbd960abb6a6e020b51f6637423c072422596691960fcfae67206'
   url do
     # Audacity does not provide a fixed URL
     # Their download URL points to a html page that post a request through js
@@ -8,10 +8,10 @@ cask 'audacity' do
     require 'net/https'
     params = {}
     params["projectId"] = '5b7eee97e8058c20a7bbfcf4'
-    params["releaseId"] = '5bb1fc583019e925782edd0d'
+    params["releaseId"] = '5cd977044525770a47e45e5d'
     params["projectUri"] = 'Audacity.html'
     params["fileName"] = "audacity-macos-#{version}.dmg"
-    params["isLatestVersion"] = 'true'
+    params["source"] = 'CF'
     uri = URI.parse("https://api.fosshub.com/download/")
     res = Net::HTTP.post_form(uri, params)
     require 'json'
