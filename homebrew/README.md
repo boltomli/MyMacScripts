@@ -30,7 +30,7 @@ sudo ln -s /usr/local/bin/ssh /usr/local/s
 LC_ALL=C sed -i.bak 's#/usr/bin/ssh#/usr/local/s#' /Applications/Welly.app/Contents/MacOS/Welly
 ```
 
-[clyang-welly](https://github.com/clyang/welly) is in active development so you may want to try `brew cask install clyang-welly`
+[clyang-welly](https://github.com/clyang/welly) is the active development in brew now.
 
 ## Audacity
 
