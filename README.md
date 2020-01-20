@@ -67,3 +67,7 @@ Simply use a different binary after proxychains4 that is not in System default p
 ## X11 forwarding
 
 Enable indirect GLX by `defaults write org.macosforge.xquartz.X11 enable_iglx -bool true` then `ssh -Y [host]`.
+
+## Python
+
+`brew install sashkab/python/python@3.X`
