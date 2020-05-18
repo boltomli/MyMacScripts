@@ -62,7 +62,7 @@ dyld: warning: could not load inserted library '/usr/local/Cellar/proxychains-ng
     /usr/local/Cellar/proxychains-ng/4.12_1/lib/libproxychains4.dylib: code signing blocked mmap() of '/usr/local/Cellar/proxychains-ng/4.12_1/lib/libproxychains4.dylib'
 ```
 
-Simply use a different binary after proxychains4 that is not in System default paths such as /Applications, etc. For exapmle, `proxychains4 /usr/local/bin/wget [someurl]`.
+Simply use a different binary after proxychains4 that is not in System default paths such as /Applications, etc. For example, `proxychains4 /usr/local/bin/wget [someurl]`.
 
 ## X11 forwarding
 
