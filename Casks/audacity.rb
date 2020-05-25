@@ -1,6 +1,6 @@
 cask 'audacity' do
-  version '2.4.0'
-  sha256 '42d08496569556d22f2f22c84b9f0196ef207af1311a9089ebbfcf2af9e21922'
+  version '2.4.1'
+  sha256 '5d340b025b80eb0c3ea41ae2487a77b86527bc8fb0e058d32e37762ac3d85575'
   url do
     # Audacity does not provide a fixed URL
     # Their download URL points to a html page that post a request through js
@@ -8,7 +8,7 @@ cask 'audacity' do
     require 'net/https'
     params = {}
     params["projectId"] = '5b7eee97e8058c20a7bbfcf4'
-    params["releaseId"] = '5ebfc924b441ab1ddec3fb18'
+    params["releaseId"] = '5ec64795191c681deac91d5d'
     params["projectUri"] = 'Audacity.html'
     params["fileName"] = "audacity-macos-#{version}.dmg"
     params["source"] = 'CF'
