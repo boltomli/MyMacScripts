@@ -20,7 +20,7 @@ cask 'audacity' do
   name 'Audacity'
   homepage 'http://www.audacityteam.org/'
 
-  depends_on macos: '>= :mavericks'
+  depends_on macos: '>= :high_sierra'
 
   app 'Audacity.app'
 
