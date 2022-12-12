@@ -44,13 +44,11 @@ LC_ALL=C sed -i.bak 's#/usr/bin/ssh#/usr/local/s#' /Applications/Welly.app/Conte
 
 [clyang-welly](https://github.com/clyang/welly) is the active development in brew now.
 
-### Audacity
-
-Audacity was removed from official cask room but is apparently still useful. I'll keep a copy updated with upstream version.
+### X Studio 3
 
 ```shell
 brew tap boltomli/MyMacScripts https://github.com/boltomli/MyMacScripts.git
-brew cask install audacity
+brew install boltomli/mymacscripts/xstudio
 ```
 
 ## proxychains-ng
